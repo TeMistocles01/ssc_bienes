@@ -1,0 +1,242 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <title>Dictamen de baja</title>
+<style>
+
+
+
+ /*
+ Maquetacion estilode  de usuario, ext, cargo telefono,adscripccion 
+*/
+.header-table {
+  
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                font-size: 13px;
+                text-transform: uppercase;
+            }
+            .border-b {
+                border-bottom: 1px solid black;
+                height: 12px;
+                text-align: center;
+            }
+
+
+/*
+estilos y posicion para equipo, serie, marca y modelo
+*/
+            .equipment-container {
+                padding: 0 220px;
+                margin-bottom: 50px;
+                margin-top: 3rem; 
+            }
+
+</style>
+
+
+
+</head>
+
+
+<body>
+  
+  <header>  
+    
+    
+    <img  style="max-width: 120px; max-height: 90px; float: right; " src="{% static 'img/img.png'%}" /> 
+    
+    <img  style="max-width: 400px; max-height: 120px; float: left; " src="{% static 'img/logo.gif'%}" /> 
+    
+    
+    
+    <header> 
+      
+      <div style="margin-top: 7rem;">
+        
+        <h2 style="text-align: center;">DICTAMEN TÉCNICO DE BAJA</h2>
+       
+        
+        <hr >
+         
+        
+      </div>
+
+      <div style="margin-top: 2rem;">
+
+</div>
+      <div class="data-container">
+        <table class="header-table">
+            <tr>
+                <td width="13%" class="bold right">
+                  Ticket:
+                </td>
+                <td width="20%" class="border-b">
+                  {{baja.ticket_baja}}
+                </td>
+                <td width="10%" class="bold right">
+                    Fecha y hora:
+                </td>
+                <td width="57%" class="border-b">
+                  {{baja.fecha_de_baja}}
+                </td>
+            </tr>
+        </table>
+        
+        
+    </div>
+
+
+
+<div style="margin-top: 2rem;">
+
+</div>
+
+
+
+
+
+
+
+
+      <div class="data-container">
+        <table class="header-table">
+            <tr>
+                <td width="13%" class="bold right">
+                    Usuario:
+                </td>
+                <td width="62%" class="border-b">
+                  {{baja.usuario}}
+                </td>
+                <td width="5%" class="bold right">
+                    Ext:
+                </td>
+                <td width="20%" class="border-b">
+                  {{baja.extencion_del_area}}
+                </td>
+            </tr>
+        </table>
+        <table class="header-table">
+            <tr>
+                <td width="13%" class="bold right">
+                    Cargo:
+                </td>
+                <td width="59%" class="border-b">
+                  {{baja.cargo}}
+                </td>
+                <td width="8%" class="bold right">
+                    Teléfono:
+                </td>
+                <td width="20%" class="border-b">
+                  {{baja.telefono}}
+                </td>
+            </tr>
+        </table>
+        <table class="header-table">
+            <tr>
+                <td width="13%" class="bold right">
+                    Adscripción:
+                </td>
+                <td width="87%" class="border-b">
+                  {{baja.Adscripcion}}
+                </td>
+            </tr>
+        </table>
+    </div>
+
+
+    <div class="equipment-container">
+      <table class="header-table">
+          <tr>
+              <td width="20%" class="bold right">
+                  Equipo:
+              </td>
+              <td width="80%" class="border-b">
+                {{baja.asignacion_de_equipos.asigne_equipo}}
+              </td>
+          </tr>
+          <tr>
+              <td width="20%" class="bold right">
+                  Serie:
+              </td>
+              <td width="80%" class="border-b">
+                {{baja.asignacion_de_equipos.serie}}
+              </td>
+          </tr>
+          <tr>
+              <td width="20%" class="bold right">
+                  Marca:
+              </td>
+              <td width="80%" class="border-b">
+                {{baja.asignacion_de_equipos.marca}}
+              </td>
+          </tr>
+          <tr>
+              <td width="20%" class="bold right">
+                  Modelo:
+              </td>
+              <td width="80%" class="border-b">
+                {{baja.asignacion_de_equipos.modelo}}
+              </td>
+          </tr>
+      </table>
+  </div>
+
+
+     
+          <div style="margin-top: 2rem;">
+            <p><b>Diacnostico:</b><br>
+            
+          </div>
+        
+          
+        <div style="border: inset; max-width: max-conten; height: 7rem;" >
+          
+          <p style="padding: 1px; text-align: center;" >
+            {{baja.diacnostico}}
+          </p> 
+        </div>
+
+        <div>
+
+      <div style="margin-top: 8rem;">
+        <div style="float: left; width: 45%; text-align: center;"><hr style="max-width: 230px;"> </div>
+        <div style="float: right; width: 45%; text-align: right;"><hr style="max-width: 230px;"></div>
+       
+
+    
+        <div style=" float: left; width: 45%; text-align: center;font-size: x-small;"><b>{{baja.tecico_diacnosticador}}<br>
+          TECNICO QUE DIACNOSTICA</b></div>
+        <div style="float: right; width: 45%; text-align: center;font-size: x-small;"><b>ING. MARLENE BECERRIL CASTILLO
+          SUBDIRECTORA <br>DE SERVICIOS DE COMPUTO<br>Y REDES DE DATOS</b></div>
+
+
+      </div>
+        
+
+ <div style="margin-top: 17rem;">
+
+        </div>
+          
+        <div style=" float: left; width: 45%; text-align: left;font-size: xx-small;">Secretaria de Seguridad Ciudadana<br>
+          Dirección General de Evaluación Planeación y Supervisión Estrategica<br>Dirección Ejecutiva de Comunicasiones<br>Subsirección de Servicios de Computo y Redes de Datos  </div>
+        <div style="float: right; width: 45%; text-align: right;font-size: xx-small;">Sidar y Rovirosa # 169 el parque<br>Alcaldía Venustiano Carranza, C.P. 15960 <br>
+        Ciudad de México<br>cat@ssc.cdmx.gob.mx<br>Tel. 5552425100 ext.4444</div><br>
+        <div><p style="text-align: center;"> {{baja.Folio}}</p> </div> 
+</body>
+        </div>
+
+                 
+         
+      
+
+          
+</html>
