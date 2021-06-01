@@ -10,9 +10,9 @@ class AsignacionDeEquipoAdmin(admin.ModelAdmin):
     
     
     
-    list_display = ('Folio','fecha_de_baja','status_baja','Oficio','ticket_baja','usuario','cargo','asignacion_de_equipos','diacnostico',) 
+    list_display = ('Folio','fecha_de_baja','status_baja','Oficio','ticket_baja','asignacion_de_equipos','diagnostico',) 
     list_filter= ('status_baja','Oficio','periodo','ticket_baja','fecha_de_baja','asignacion_de_equipos',)
-
+    list_editable = ('status_baja',)
 
     def save_model(self, request, obj, form, change):
         equipos_baja = obj.asignacion_de_equipos

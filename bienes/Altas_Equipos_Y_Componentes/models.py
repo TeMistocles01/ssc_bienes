@@ -122,7 +122,7 @@ class EquipoYArticulos(models.Model):
     #objects = EquipoYArticulosManager()    
     # elementos visuales en el formulario
     def __str__(self):
-        return '%s Serie %s Marca %s Modelo %s '%(self.asigne_equipo, self.serie,self.marca, self.modelo)
+        return 'Serie %s'%(self.serie)
 
 
 

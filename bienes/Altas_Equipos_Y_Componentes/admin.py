@@ -35,14 +35,14 @@ class EquipoYArticulosAdmin(admin.ModelAdmin):
         return super().get_form(request, obj, **kwargs)
     
     list_filter = ('asigne_equipo','serie','modelo','marca','asignar_pulgadas_pantalla','status_del_equipo','status',)
-    list_display = ('asigne_equipo','serie','modelo','marca','discos','memorias_rams','status_del_equipo','status',) 
-    #list_editable = ('status_del_equipo',)
+    list_display = ('asigne_equipo','serie','modelo','marca','disco_duro','memoria_ram','status_del_equipo','status',) 
+    list_editable = ('status_del_equipo',)
 
-    def discos(self, obj):
+    def disco_duro(self, obj):
         
         return ', '.join([str(p) for p in obj.asignar_disco.all()])
 
-    def memorias_rams(self, obj):
+    def memoria_ram(self, obj):
         
         return ', '.join([str(p) for p in obj.asignar_memoria.all()])
 

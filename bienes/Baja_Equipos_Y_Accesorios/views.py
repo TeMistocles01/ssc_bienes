@@ -11,10 +11,14 @@ from django.template.loader import get_template
 from weasyprint import HTML
 
 
+
+
+
+
 class data_baja(View):
     def get(self, requets, *args, **kwargs):
         try:
-            template = get_template('dictamen.html')
+            template = get_template('dictamen-baja.html')
             context = {
                  'baja': Datos_Baja.objects.get(pk=self.kwargs['pk'])
              }
