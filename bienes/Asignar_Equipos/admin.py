@@ -33,8 +33,10 @@ class AsignacionDeEquipoAdmin(admin.ModelAdmin):
 
 
 
+    #autocomplete_fields = ['asignacion_de_equipos']
     # ingresar marca
-    search_fields = ['nombre_responsable','numero_de_empleado']
+    search_fields = ['nombre_responsable','numero_de_empleado',]
+    list_filter= ('asignacion_de_equipos',)
     list_display = ('IDE','nombre_responsable','status_responsable','numero_de_empleado','equipos_y_aditamentos',) 
     #list_editable = ('asignacion_de_equipos',)
     
@@ -50,9 +52,6 @@ class AsignacionDeEquipoAdmin(admin.ModelAdmin):
     def save_related(self, request, form, formsets, change):
         super().save_related(request, form, formsets, change)
 
-
-
-        
         obj = form.instance
         equipos = obj.asignacion_de_equipos.all()
         
@@ -62,10 +61,6 @@ class AsignacionDeEquipoAdmin(admin.ModelAdmin):
 
 
     
-
-
-
-
 admin.site.register(AsignacionDeEquipo,AsignacionDeEquipoAdmin)
 
 

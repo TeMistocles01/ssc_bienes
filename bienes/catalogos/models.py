@@ -30,20 +30,21 @@ class CataProcesador(models.Model):
 
     def __str__(self):
         return '%s '%(self.procesador)
+
 class CataEquipoArticulos(models.Model):
-    forma_de_adquisicion = models.CharField('Forma de adquisición:',max_length=100, blank=False, null=False)
+    asigne_equipo = models.CharField('Equipo o articulo',max_length=100, blank=False, null=False)
     class Meta:
         verbose_name='Catálogo Equipos y aditamentos'
         verbose_name_plural='Catálogo Equipos y aditamentos'
         # funcion para convertir texto ingresado por teclado en minuscula en mayuscula
     def save(self, *args, **kwargs):
-        self.forma_de_adquisicion = (self.forma_de_adquisicion).upper()
+        self.asigne_equipo = (self.asigne_equipo).upper()
         
         
         return super(CataEquipoArticulos, self).save(*args, **kwargs)
 
     def __str__(self):
-        return '%s '%(self.forma_de_adquisicion)
+        return '%s '%(self.asigne_equipo)
 
 class CataFormAdqui(models.Model):
     forma_de_adquisicion = models.CharField('Forma de adquisición:',max_length=100, blank=False, null=False)

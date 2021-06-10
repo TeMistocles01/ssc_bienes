@@ -82,6 +82,7 @@ class MemoriaRam(models.Model):
 class EquipoYArticulos(models.Model):
 
     id = models.AutoField(primary_key=True)
+
     asigne_equipo = models.ForeignKey(CataEquipoArticulos, on_delete= models.SET_NULL,null=True, verbose_name='Equipo o articulo')
     forma_de_adquisicion = models.ForeignKey(CataFormAdqui, on_delete= models.SET_NULL,null=True, verbose_name='Forma de adquisición')
     numero_de_contrato = models.ForeignKey(CataNumContra, on_delete= models.SET_NULL,null=True, verbose_name='Número de contrato')
@@ -95,6 +96,7 @@ class EquipoYArticulos(models.Model):
     procesador = models.ForeignKey(CataProcesador,on_delete= models.SET_NULL,null=True, blank=True)
     asignar_sofware = models.ForeignKey(Sofware,on_delete= models.SET_NULL,null=True, blank=True)
     asignar_pulgadas_pantalla = models.ForeignKey(Catapulgadas, on_delete= models.SET_NULL,null=True, blank=True,verbose_name='Pulgadas pantalla')
+    
     marca = models.ForeignKey(CataMarcasEquiTMP, on_delete= models.SET_NULL,null=True)
     serie = models.CharField('Serie',max_length=30, blank=False, null=False,unique=True)    
     modelo = models.CharField('Modelo',max_length=30, blank=False, null=False)
@@ -122,7 +124,7 @@ class EquipoYArticulos(models.Model):
     #objects = EquipoYArticulosManager()    
     # elementos visuales en el formulario
     def __str__(self):
-        return 'Serie %s'%(self.serie)
+        return ' %s  %s, MODELO: %s '%(self.serie, self.asigne_equipo, self.modelo  )
 
 
 

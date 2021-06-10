@@ -33,6 +33,9 @@ class EquipoYArticulosAdmin(admin.ModelAdmin):
             pass
             # kwargs['form'] = CreationForm
         return super().get_form(request, obj, **kwargs)
+
+    # filtros
+    search_fields = ['serie','modelo','marca__marca','asigne_equipo__asigne_equipo','status_del_equipo__status_del_equipo','status',]
     
     list_filter = ('asigne_equipo','serie','modelo','marca','asignar_pulgadas_pantalla','status_del_equipo','status',)
     list_display = ('asigne_equipo','serie','modelo','marca','disco_duro','memoria_ram','status_del_equipo','status',) 

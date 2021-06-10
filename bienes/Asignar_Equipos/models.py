@@ -7,6 +7,7 @@ from datetime import datetime
 from catalogos.models import CataOficio,CataIDE,CataDireccion,CataTelefono,CataExtencion,CataAdscripcion,CataCargo,CataTicket,ResponsableArea,ResponsableEquipo
 
 from Altas_Equipos_Y_Componentes.models import EquipoYArticulos
+
 class AsignacionDeEquipo(models.Model):
     IDE = models.AutoField(primary_key=True)
     fecha_de_asignacion = models.DateTimeField(default=datetime.now, blank=False, null=False, verbose_name='Fecha:')
@@ -39,11 +40,6 @@ class AsignacionDeEquipo(models.Model):
         self.nombre_responsable = (self.nombre_responsable).upper()
         self.numero_de_empleado = (self.numero_de_empleado).upper()
         return super(AsignacionDeEquipo, self).save(*args, **kwargs)
-
-    
-
-
-    
 
     def __str__(self):
          return '%s %s %s %s %s'%(self.IDE,self.nombre_responsable, self.numero_de_empleado, self.status_responsable, self.asignacion_de_equipos)

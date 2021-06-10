@@ -17,7 +17,7 @@ class Datos_Baja(models.Model):
     Adscripcion =models.ForeignKey(CataAdscripcion,on_delete= models.SET_NULL,null=True)
     telefono =models.ForeignKey(CataTelefono,on_delete= models.SET_NULL,null=True)
     extencion_del_area =models.ForeignKey(CataExtencion, on_delete= models.SET_NULL,null=True)
-    asignacion_de_equipos = models.ForeignKey(EquipoYArticulos, on_delete= models.SET_NULL,null=True)
+    asignacion_de_equipos = models.ForeignKey(EquipoYArticulos, on_delete= models.SET_NULL,null=True, verbose_name='Equipo para baja:')
     periodo = models.ForeignKey(CataPeriodo, on_delete= models.SET_NULL,null=True)
     tecico_diacnosticador =models.CharField('Tecnico diacnosticador',max_length=255, blank=False, null=False)
     diagnostico = models.TextField('Diagnóstico',max_length=255, blank=True, null=True)
