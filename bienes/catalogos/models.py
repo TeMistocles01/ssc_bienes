@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Catapulgadas(models.Model):
+    id = models.AutoField(primary_key=True)
     pulgadas = models.CharField('Pulgadas',max_length=100, blank=True, null=True)
     class Meta:
         verbose_name='Catálogo pulgadas'
@@ -17,6 +18,7 @@ class Catapulgadas(models.Model):
         return '%s '%(self.pulgadas)
 
 class CataProcesador(models.Model):
+    id = models.AutoField(primary_key=True)
     procesador = models.CharField('Pulgadas',max_length=100, blank=True, null=True)
     class Meta:
         verbose_name='Catálogo procesador'
@@ -32,6 +34,7 @@ class CataProcesador(models.Model):
         return '%s '%(self.procesador)
 
 class CataEquipoArticulos(models.Model):
+    id = models.AutoField(primary_key=True)
     asigne_equipo = models.CharField('Equipo o articulo',max_length=100, blank=False, null=False)
     class Meta:
         verbose_name='Catálogo Equipos y aditamentos'
@@ -47,6 +50,7 @@ class CataEquipoArticulos(models.Model):
         return '%s '%(self.asigne_equipo)
 
 class CataFormAdqui(models.Model):
+    id = models.AutoField(primary_key=True)
     forma_de_adquisicion = models.CharField('Forma de adquisición:',max_length=100, blank=False, null=False)
     class Meta:
         verbose_name='Catálogo forma de adquisición'
@@ -61,6 +65,7 @@ class CataFormAdqui(models.Model):
     def __str__(self):
         return '%s '%(self.forma_de_adquisicion)
 class CataNumContra(models.Model):
+    id = models.AutoField(primary_key=True)
     contrato_numero = models.CharField('Número',max_length=255, blank=False, null=False)
     class Meta:
         verbose_name='Catálogo número de contrato'
@@ -76,6 +81,7 @@ class CataNumContra(models.Model):
         return '%s '%(self.contrato_numero)
 
 class CataNuevoReuso(models.Model):
+    id = models.AutoField(primary_key=True)
     registro_componente = models.CharField('Asigne: Nuevo/Reuso',max_length=30, blank=False, null=False)
     class Meta:
         verbose_name='Catálogo nuevo/Reuso'
@@ -93,7 +99,7 @@ class CataNuevoReuso(models.Model):
  
 
 class CataStatus(models.Model):
-
+    id = models.AutoField(primary_key=True)
     status_del_equipo = models.CharField('Status del equipo:',max_length=50, blank=False, null=False)
     class Meta:
         #asigna nombre a la tabla
@@ -110,7 +116,11 @@ class CataStatus(models.Model):
     #muestra como se mostrara la vista en el formato de salida en lalista
     def __str__(self):
         return '%s'%(self.status_del_equipo)
+
+
+
 class CataTipoRegist(models.Model):
+    id = models.AutoField(primary_key=True)
     tipo_de_registro = models.CharField('Consumible/',max_length=30, blank=False, null=False)
     
     class Meta:
@@ -130,6 +140,7 @@ class CataTipoRegist(models.Model):
         return '%s'%(self.tipo_de_registro)
 
 class CataColores(models.Model):
+    id = models.AutoField(primary_key=True)
     color = models.CharField('Color',max_length=30, blank=True, null=True)
 
     class Meta:
@@ -151,7 +162,6 @@ class CataColores(models.Model):
         return '%s'%(self.color)
 # catalogo solo para marcas de dico duro y memoria ram
 class CataMarcasDM(models.Model):
-    
     id = models.AutoField(primary_key=True )
     marca = models.CharField('Asigne nombre de la marca',max_length=30, blank=False, null=False)    
     
@@ -169,7 +179,6 @@ class CataMarcasDM(models.Model):
         return '%s '%(self.marca)
 
 class CataMarcasEquiTMP(models.Model):
-    
     id = models.AutoField(primary_key=True )
     marca = models.CharField('Asigne nombre de la marca',max_length=30, blank=False, null=False)    
     
@@ -190,7 +199,6 @@ class CataMarcasEquiTMP(models.Model):
 # catalogos solo memoria ram
 
 class CataTipoDDR(models.Model):
-
     id = models.AutoField(primary_key=True )
     tipo_de_memoria = models.CharField('Asigne DDR/2/3/4',max_length=30, blank=False, null=False)
 
@@ -247,6 +255,7 @@ class CataCapaAlmDis(models.Model):
     def __str__(self):
         return '%s '%(self.disco_capacidad)
 class CataTipoDis(models.Model):
+    id = models.AutoField(primary_key=True)
     tipo_de_disco = models.CharField('Asigne:SSD/HDD',max_length=3, blank=False, null=False)
     
     
@@ -263,7 +272,7 @@ class CataTipoDis(models.Model):
     def __str__(self):
         return '%s '%(self.tipo_de_disco)
 class CataVelocDis(models.Model):
-
+    id = models.AutoField(primary_key=True)
     velocidad = models.CharField('Asigne 2.5/3.5',max_length=30, blank=False, null=False)    
     class Meta:
         verbose_name='Catálogo velocidad disco'
@@ -277,14 +286,6 @@ class CataVelocDis(models.Model):
         return '%s '%(self.velocidad)
 
 
-
-
-
-
-    
-    
-
-    
 ##############################catalogos modelo asignar equipos y componentes
 
 class CataOficio(models.Model):

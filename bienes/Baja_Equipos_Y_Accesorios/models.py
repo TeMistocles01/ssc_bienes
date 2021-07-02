@@ -5,6 +5,7 @@ from catalogos.models import CataCargoBaja, CataTelefono,CataExtencion,CataTicke
 from Asignar_Equipos.models import EquipoYArticulos
 
 
+
 # Create your models here.
 class Datos_Baja(models.Model):  
     Folio = models.AutoField(primary_key=True)

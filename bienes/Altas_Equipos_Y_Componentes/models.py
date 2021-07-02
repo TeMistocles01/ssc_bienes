@@ -32,16 +32,23 @@ class DiscoDuro(models.Model):
         verbose_name='Disco Duro'
         verbose_name_plural='Disco Duro'
 
+    def save(self, *args, **kwargs):
 
+            self.Serie = (self.Serie).upper()
+            self.Modelo = (self.Modelo).upper()
+            
+     
+            return super(DiscoDuro, self).save(*args, **kwargs)
         
     
-
-    
-
     def __str__(self):
-        return '%s '%(self.Serie)
+        return '%s  '%(self.Serie)
 
- 
+
+
+
+
+
 ################### Memoria ram
 class MemoriaRam(models.Model):
     id = models.AutoField(primary_key=True)
@@ -63,10 +70,18 @@ class MemoriaRam(models.Model):
     class Meta:
         verbose_name='Memoria Ram'
         verbose_name_plural='Memoria Ram'
+
+    def save(self, *args, **kwargs):
+
+
+        self.Serie = (self.Serie).upper()
+        self.Modelo = (self.Modelo).upper()
+        
+        return super(MemoriaRam, self).save(*args, **kwargs)
    
 
     def __str__(self):
-        return '%s'%(self.Serie, )
+        return '%s'%(self.Serie)
 
 
 
@@ -103,7 +118,7 @@ class EquipoYArticulos(models.Model):
    
     
     tipo_de_registro = models.ForeignKey(CataTipoRegist, on_delete= models.SET_NULL,null=True,verbose_name='Tipo de registro')
-    status_del_equipo = models.ForeignKey(CataStatus, on_delete= models.SET_NULL,null=True)
+    status_del_equipo = models.ForeignKey(CataStatus, on_delete= models.PROTECT,null=True)
     observaciones = models.TextField('Observaciones',max_length=1000, blank=True, null=True)
     status = models.BooleanField('Disponible', default=True)
     

@@ -15,13 +15,13 @@ class DiscoDuroAdmin(admin.ModelAdmin):
     
     list_display = ('Serie','Modelo','Marca','capacidad_de_disco','tipo_de_disco','status')
     list_filter = ('Serie','Modelo','Marca','capacidad_de_disco','status') 
-
+    search_fields = ['Serie','Modelo','Marca__marca',]
 class MemoriaRamAdmin(admin.ModelAdmin):
     
     
     list_display = ('Serie','Modelo','Marca','capacidad_ram','tipo_de_memoria','status')
     list_filter = ('Serie','Modelo','Marca','capacidad_ram','status') 
-
+    search_fields = ['Serie','Modelo','Marca__marca',]
 
 
 class EquipoYArticulosAdmin(admin.ModelAdmin):
